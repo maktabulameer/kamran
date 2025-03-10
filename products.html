@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Kamran</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Kamran</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="cart.html" class="btn btn-outline-dark me-2">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline-dark">
+                        <i class="fas fa-user"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="products-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Filters</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Categories</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="electronics" id="electronics">
+                                <label class="form-check-label" for="electronics">Electronics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="fashion" id="fashion">
+                                <label class="form-check-label" for="fashion">Fashion</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="home" id="home">
+                                <label class="form-check-label" for="home">Home & Living</label>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Price Range</h6>
+                            <div class="mb-3">
+                                <label for="priceRange" class="form-label">Max Price: $<span id="priceValue">1000</span></label>
+                                <input type="range" class="form-range" id="priceRange" min="0" max="1000" value="1000">
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Sort By</h6>
+                            <select class="form-select" id="sortSelect">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-md-9">
+                    <div class="row g-4" id="productsGrid">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Kamran is your one-stop destination for all your shopping needs. We offer quality products at competitive prices.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-light">Products</a></li>
+                        <li><a href="about.html" class="text-light">About Us</a></li>
+                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Kamran. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // Products page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample product data with real images
+            const products = [
+                {
+                    id: 1,
+                    name: "Wireless Headphones",
+                    description: "High-quality wireless headphones with noise cancellation",
+                    price: 99.99,
+                    category: "electronics",
+                    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                },
+                {
+                    id: 2,
+                    name: "Smart Watch",
+                    description: "Feature-rich smartwatch with health tracking",
+                    price: 199.99,
+                    category: "electronics",
+                    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                },
+                {
+                    id: 3,
+                    name: "Classic T-Shirt",
+                    description: "Comfortable cotton t-shirt in various colors",
+                    price: 24.99,
+                    category: "fashion",
+                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                },
+                {
+                    id: 4,
+                    name: "Denim Jeans",
+                    description: "Classic fit denim jeans with stretch",
+                    price: 59.99,
+                    category: "fashion",
+                    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                },
+                {
+                    id: 5,
+                    name: "Coffee Maker",
+                    description: "Programmable coffee maker with timer",
+                    price: 79.99,
+                    category: "home",
+                    image: "https://images.unsplash.com/photo-1517663154414-b609dab1b68b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                },
+                {
+                    id: 6,
+                    name: "Smart LED Bulb",
+                    description: "WiFi-enabled smart LED bulb with app control",
+                    price: 29.99,
+                    category: "home",
+                    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                }
+            ];
+
+            // Price range slider
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+            
+            if (priceRange && priceValue) {
+                priceRange.addEventListener('input', function() {
+                    priceValue.textContent = this.value;
+                });
+            }
+
+            // Filter and sort functionality
+            const filterInputs = document.querySelectorAll('.form-check-input');
+            const sortSelect = document.getElementById('sortSelect');
+            const productsGrid = document.getElementById('productsGrid');
+
+            function filterAndSortProducts() {
+                const selectedCategories = Array.from(filterInputs)
+                    .filter(input => input.checked)
+                    .map(input => input.value);
+                
+                const maxPrice = parseInt(priceRange.value);
+                const sortBy = sortSelect.value;
+
+                let filteredProducts = products.filter(product => {
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                    const priceMatch = product.price <= maxPrice;
+                    return categoryMatch && priceMatch;
+                });
+
+                // Sort products
+                switch (sortBy) {
+                    case 'price-low':
+                        filteredProducts.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-high':
+                        filteredProducts.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'newest':
+                        filteredProducts.sort((a, b) => b.id - a.id);
+                        break;
+                }
+
+                // Display products
+                displayProducts(filteredProducts);
+            }
+
+            function displayProducts(products) {
+                if (!productsGrid) return;
+
+                productsGrid.innerHTML = products.map(product => `
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card product-card h-100">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">${product.description}</p>
+                                <p class="card-text"><strong>$${product.price.toFixed(2)}</strong></p>
+                                <button class="btn btn-primary" onclick="addToCart(${product.id})">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Add event listeners
+            filterInputs.forEach(input => {
+                input.addEventListener('change', filterAndSortProducts);
+            });
+
+            if (priceRange) {
+                priceRange.addEventListener('change', filterAndSortProducts);
+            }
+
+            if (sortSelect) {
+                sortSelect.addEventListener('change', filterAndSortProducts);
+            }
+
+            // Initial display
+            filterAndSortProducts();
+        });
+    </script>
+</body>
+</html> 
